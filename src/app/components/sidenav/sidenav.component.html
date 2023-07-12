@@ -1,0 +1,17 @@
+<mat-sidenav-container class="h-full">
+  <mat-sidenav mode="side" opened>
+    <mat-list>
+      <mat-list-item>
+        <button mat-button color="accent" [ngClass]="'w-full'" (click)="toggleListado()">Listado de alumnos</button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <button mat-button color="accent" [ngClass]="'w-full'">ABM de alumnos</button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content [ngClass]="'p-8'">
+    <app-users-table *ngIf="mostrarListadoAlumnos"/>
+  </mat-sidenav-content>
+<mat-sidenav-container/>
