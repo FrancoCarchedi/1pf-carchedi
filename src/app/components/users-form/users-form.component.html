@@ -1,1 +1,22 @@
-<p>users-form works!</p>
+<form [formGroup]="formulario" class="flex flex-col w-1/4 my-4 gap-2" >
+  <mat-form-field>
+    <mat-label>Nombre completo</mat-label>
+    <input matInput placeholder="Nombre completo" type="text" formControlName="fullname" required>
+    <mat-error *ngIf="formulario.get('fullname')?.hasError('required')">El nombre completo es requerido.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Correo electrónico</mat-label>
+    <input matInput placeholder="Nombre completo" type="email" formControlName="email" required>
+    <mat-error *ngIf="formulario.get('email')?.hasError('required')">El correo es requerido.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Edad</mat-label>
+    <input matInput placeholder="Nombre completo" type="number" min="1" formControlName="age" required="">
+    <mat-error *ngIf="formulario.get('age')?.hasError('required')">La edad es requerida</mat-error>
+    <mat-error *ngIf="formulario.get('age')?.hasError('min')">La edad es inválida</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" class="w-fit">Cargar alumno</button>
+</form>

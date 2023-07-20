@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
+import { Component, } from '@angular/core';
+import { MatTableModule } from '@angular/material/table';
 
 export interface Users {
-  fullname: string;
+  name: string;
+  surname: string;
   email: string;
   age: string;
 }
 
 const ELEMENT_DATA: Users[] = [
-  {fullname: 'Franco Carchedi', email: 'franconcarchedi@gmail.com', age: '26'},
-  {fullname: 'Rodrigo Mungo', email: 'rodrigomungo@gmail.com', age: '27'},
-  {fullname: 'Jonathan Olivera', email: 'jonathanolivera@gmail.com', age: '27'},
+  {name: 'Franco', surname: 'Carchedi', email: 'franconcarchedi@gmail.com', age: '26'},
+  {name: 'Franco', surname: 'Carchedi' , email: 'franconcarchedi@gmail.com', age: '26'},
+  {name: 'Franco', surname: 'Carchedi' , email: 'franconcarchedi@gmail.com', age: '26'},
 ];
 
 @Component({
@@ -18,7 +19,7 @@ const ELEMENT_DATA: Users[] = [
   templateUrl: './users-table.component.html',
   styleUrls: ['./users-table.component.css'],
   standalone: true,
-  imports: [MatTableModule]
+  imports: [MatTableModule,]
 })
 
 export class UsersTableComponent {

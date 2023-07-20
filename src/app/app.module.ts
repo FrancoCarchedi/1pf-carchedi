@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 //Importacion de modulos de material
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -14,15 +13,16 @@ import {MatButtonModule} from '@angular/material/button';
 //Importacion de componentes
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { UsersFormComponent } from './components/users-form/users-form.component';
 import { UsersTableComponent } from './components/users-table/users-table.component';
+import { UsersFormComponent } from './components/users-form/users-form.component';
+import { FullnamePipe } from './fullname.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     SidenavComponent,
-    UsersFormComponent
+    FullnamePipe,
   ],
   imports: [
     BrowserModule,
@@ -32,9 +32,12 @@ import { UsersTableComponent } from './components/users-table/users-table.compon
     MatSidenavModule,
     MatTableModule,
     UsersTableComponent,
+    UsersFormComponent,
     MatButtonModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+  ],
+  exports: [
   ],
   providers: [],
   bootstrap: [AppComponent]
