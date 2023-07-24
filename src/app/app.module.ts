@@ -15,14 +15,16 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { UsersTableComponent } from './components/users-table/users-table.component';
 import { UsersFormComponent } from './components/users-form/users-form.component';
-import { FullnamePipe } from './fullname.pipe';
+import { MiTituloSizeDirective } from './mi-titulo-size.directive';
+// import { FullnamePipe } from './fullname.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     SidenavComponent,
-    FullnamePipe,
+    MiTituloSizeDirective,
+    // FullnamePipe,
   ],
   imports: [
     BrowserModule,

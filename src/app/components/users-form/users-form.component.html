@@ -1,8 +1,14 @@
-<form [formGroup]="formulario" class="flex flex-col w-1/4 my-4 gap-2" >
+<form [formGroup]="formulario" class="flex flex-col w-1/4 my-4 gap-2">
   <mat-form-field>
-    <mat-label>Nombre completo</mat-label>
-    <input matInput placeholder="Nombre completo" type="text" formControlName="fullname" required>
-    <mat-error *ngIf="formulario.get('fullname')?.hasError('required')">El nombre completo es requerido.</mat-error>
+    <mat-label>Nombre</mat-label>
+    <input matInput placeholder="Nombre" type="text" formControlName="name" required>
+    <mat-error *ngIf="formulario.get('name')?.hasError('required')">El nombre es requerido.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Apellido</mat-label>
+    <input matInput placeholder="Apellido" type="text" formControlName="surname" required>
+    <mat-error *ngIf="formulario.get('name')?.hasError('required')">El apellido es requerido.</mat-error>
   </mat-form-field>
 
   <mat-form-field>
@@ -13,10 +19,10 @@
 
   <mat-form-field>
     <mat-label>Edad</mat-label>
-    <input matInput placeholder="Nombre completo" type="number" min="1" formControlName="age" required="">
+    <input matInput placeholder="Nombre completo" type="number" min="1" inputmode="numeric" formControlName="age" required="">
     <mat-error *ngIf="formulario.get('age')?.hasError('required')">La edad es requerida</mat-error>
     <mat-error *ngIf="formulario.get('age')?.hasError('min')">La edad es inválida</mat-error>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" class="w-fit">Cargar alumno</button>
+  <button mat-raised-button color="primary" class="w-fit" (click)="cargarUsuario()">Cargar alumno</button>
 </form>

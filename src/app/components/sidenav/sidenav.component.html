@@ -2,7 +2,7 @@
   <mat-sidenav mode="side" opened>
     <mat-list>
       <mat-list-item>
-        <button mat-button color="accent" [ngClass]="'w-full'" (click)="toggleListado()">Listado de alumnos</button>
+        <button mat-button color="accent" [ngClass]="'w-full'">Listado de alumnos</button>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
@@ -12,7 +12,7 @@
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content [ngClass]="'p-8'">
-    <app-users-table *ngIf="mostrarListadoAlumnos"/>
+    <app-users-table/>
     <app-users-form></app-users-form>
   </mat-sidenav-content>
 <mat-sidenav-container/>

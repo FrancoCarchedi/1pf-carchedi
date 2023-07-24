@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { FormGroup, FormBuilder, FormControl, Validators, } from '@angular/forms';
@@ -17,11 +17,25 @@ import { MatButtonModule } from '@angular/material/button';
 export class UsersFormComponent {
   formulario: FormGroup;
 
+  @Output() usuarioCargado = new EventEmitter<any>();
+
   constructor(private formBuilder: FormBuilder) {
     this.formulario = this.formBuilder.group({
-      fullname: ['', Validators.required],
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
       email: new FormControl('', [Validators.required, Validators.email]),
-      age: ['', [Validators.required, Validators.pattern(/^-?\d+$/)], Validators.min(1)],// Agrega aquí los otros campos de tu formulario
+      age: ['', Validators.required],
     });
+
+    this.formulario.valueChanges.subscribe((valor) => {
+      console.log('Valores del formulario', valor);
+    })
   }
+
+  //Aun no funciona
+  cargarUsuario() {
+    if (this.formulario.valid) {
+      this.usuarioCargado.emit(this.formulario.value);
+    }
+  };
 }

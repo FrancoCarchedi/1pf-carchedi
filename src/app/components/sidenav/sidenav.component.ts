@@ -6,9 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidenav.component.css'],
 })
 export class SidenavComponent {
-  mostrarListadoAlumnos = true;
 
-  toggleListado() {
-    this.mostrarListadoAlumnos = !this.mostrarListadoAlumnos;
-  }
 }
