@@ -13,10 +13,13 @@ import {MatButtonModule} from '@angular/material/button';
 //Importacion de componentes
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { UsersTableComponent } from './components/users-table/users-table.component';
-import { UsersFormComponent } from './components/users-form/users-form.component';
-import { MiTituloSizeDirective } from './mi-titulo-size.directive';
-// import { FullnamePipe } from './fullname.pipe';
+import { UsersTableComponent } from './dashboard/pages/users/components/users-table/users-table.component';
+import { UsersFormComponent } from './dashboard/pages/users/components/users-form/users-form.component';
+import { MiTituloSizeDirective } from './shared/directives/mi-titulo-size.directive';
+import { FullnamePipe } from './shared/pipes/fullname.pipe';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { MiTituloSizeDirective } from './mi-titulo-size.directive';
     ToolbarComponent,
     SidenavComponent,
     MiTituloSizeDirective,
-    // FullnamePipe,
+    FullnamePipe,
+    UsersTableComponent,
+    UsersFormComponent
   ],
   imports: [
     BrowserModule,
@@ -33,11 +38,12 @@ import { MiTituloSizeDirective } from './mi-titulo-size.directive';
     MatToolbarModule,
     MatSidenavModule,
     MatTableModule,
-    UsersTableComponent,
-    UsersFormComponent,
     MatButtonModule,
     MatDividerModule,
     MatListModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   exports: [
   ],
