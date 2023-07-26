@@ -8,14 +8,14 @@
 <div mat-dialog-content>Dialog</div>
 
 <form [formGroup]="userForm" class="flex flex-col w-1/4 my-4 gap-2">
-  <mat-form-field>
+  <mat-form-field class="flex-1">
     <mat-label>Nombre</mat-label>
     <input matInput placeholder="Nombre" type="text" formControlName="name" required>
     <mat-error *ngIf="userForm.get('name')?.hasError('required')">El nombre es requerido.</mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Apellido</mat-label>
+    <mat-label class="flex-1">Apellido</mat-label>
     <input matInput placeholder="Apellido" type="text" formControlName="surname" required>
     <mat-error *ngIf="userForm.get('name')?.hasError('required')">El apellido es requerido.</mat-error>
   </mat-form-field>
