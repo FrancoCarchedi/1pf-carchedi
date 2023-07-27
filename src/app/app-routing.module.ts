@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UsersTableComponent } from './dashboard/pages/users/components/users-table/users-table.component';
+import { UsersComponent } from './dashboard/pages/users/users.component';
 
 const routes: Routes = [
+  // { path: 'home', component: HomeComponent }
+  { path: 'users', component: UsersComponent },
+  // { path: 'courses', component: CoursesTableComponent },
   // {
   //   path: 'dashboard',
   //   component: DashboardComponent,

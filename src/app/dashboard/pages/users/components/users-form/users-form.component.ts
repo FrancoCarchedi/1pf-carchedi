@@ -1,6 +1,8 @@
-import { Component, Inject } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators, } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, } from '@angular/forms';
+import { UserService } from '../../user.service';
 import { User } from '../../models/interfaces/user';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-users-form',
@@ -9,24 +11,40 @@ import { User } from '../../models/interfaces/user';
 })
 
 export class UsersFormComponent {
-  editingUser?: User;
+  userForm: FormGroup;
+  private dialogRef: MatDialogRef<UsersFormComponent>
 
-  nameControl = new FormControl<string | null>(null, [
-    Validators.required,
-    Validators.minLength(2),
-  ]);
-  surnameControl = new FormControl<string | null>(null, [Validators.required]);
-  emailControl = new FormControl<string | null>(null, [Validators.required]);
-  passwordControl = new FormControl<string | null>(null, [Validators.required]);
+  constructor(private formBuilder: FormBuilder, private userService: UserService, public dialog: MatDialog) {
+    this.userForm = this.formBuilder.group({
+      id: ['', Validators.required],
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    })
+  }
 
-  userForm = new FormGroup({
-    name: this.nameControl,
-    surname: this.surnameControl,
-    email: this.emailControl,
-    password: this.passwordControl,
-  });
+  openDialog(): void {
+    const dialogRef = this.dialog.open(UsersFormComponent);
 
-  constructor(private formBuilder: FormBuilder) {
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog is closed' + result);
+    })
+  }
 
+  addUser(): void {
+    if (this.userForm.valid) {
+      const user = this.userForm.value;
+      this.userService.addUser(user);
+      this.userForm.reset();
+    }
+  }
+
+  onSubmit(): void {
+    if (this.userForm.valid) {
+      const user: User = this.userForm.value;
+      this.userService.addUser(user);
+      this.userForm.reset(); // Resetea el formulario después de agregar un usuario
+    }
   }
 }
