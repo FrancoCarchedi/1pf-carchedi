@@ -20,6 +20,7 @@ import { FullnamePipe } from './shared/pipes/fullname.pipe';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthComponent } from './auth/pages/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MiTituloSizeDirective,
     FullnamePipe,
     UsersTableComponent,
-    UsersFormComponent
+    UsersFormComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
