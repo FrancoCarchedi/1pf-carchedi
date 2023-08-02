@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, take, map } from 'rxjs';
 import { User } from './models/interfaces/user';
 
 @Injectable({
@@ -27,9 +27,24 @@ export class UserService {
     return this.usersSubject.asObservable();
   }
 
+  getUserById(id: number) {
+    return this.usersSubject.pipe(
+      take(1),
+      map(( users ) =>  users.find((u) => u.id === id)),
+    )
+  }
+
   addUser(user: User): void {
     const currentUsers = this.usersSubject.getValue();
     this.usersSubject.next([...currentUsers, user]);
+  }
+
+  deleteUser(id: number): void {
+    this.usersSubject.pipe(take(1)).subscribe({
+      next: (arr) => {
+        this.usersSubject.next(arr.filter((u) => u.id !== id));
+      }
+    })
   }
 
   // editUser(index: number, updatedUser: User): void {

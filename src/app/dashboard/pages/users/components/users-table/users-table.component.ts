@@ -18,8 +18,17 @@ export class UsersTableComponent implements OnInit {
     this.dataSource$ = this.userService.getUsers();
   }
 
+  getUserById(id: number) {
+    this.userService.getUserById(id);
+    console.log(id);
+  }
+
   addUser(user: User): void {
     this.userService.addUser(user);
+  }
+
+  deleteUser(id: number): void {
+    this.userService.deleteUser(id);
   }
 
   displayedColumns: string[] = ['id','fullname', 'email', 'actions'];

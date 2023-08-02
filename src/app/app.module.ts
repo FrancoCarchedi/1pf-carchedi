@@ -3,16 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//Importacion de modulos de material
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatTableModule} from '@angular/material/table';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatListModule} from '@angular/material/list';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
 //Importacion de modulos de Angular
 import { ReactiveFormsModule } from '@angular/forms';
 //Importacion de componentes
@@ -26,6 +16,11 @@ import { MiTituloSizeDirective } from './shared/directives/mi-titulo-size.direct
 import { FullnamePipe } from './shared/pipes/fullname.pipe';
 import { UsersComponent } from './dashboard/pages/users/users.component';
 import { UserService } from './dashboard/pages/users/user.service';
+import { HomeComponent } from './dashboard/pages/home/home.component';
+import { CoursesComponent } from './dashboard/pages/courses/courses/courses.component';
+import { SharedModule } from './shared/shared.module';
+import { UserDetailComponent } from './dashboard/pages/users/pages/user-detail/user-detail.component';
+import { SidebarRoutingModule } from './dashboard/layout/sidenav/sidenav-routing.module';
 
 @NgModule({
   declarations: [
@@ -37,22 +32,18 @@ import { UserService } from './dashboard/pages/users/user.service';
     UsersTableComponent,
     UsersFormComponent,
     AuthComponent,
-    UsersComponent
+    UsersComponent,
+    HomeComponent,
+    CoursesComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatTableModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatListModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatDialogModule,
-    ReactiveFormsModule
+    SharedModule,
+    ReactiveFormsModule,
+    // SidebarRoutingModule
   ],
   exports: [
   ],

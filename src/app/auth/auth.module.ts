@@ -9,7 +9,9 @@ import { RegisterComponent } from './pages/register/register.component';
     RegisterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+  ],
+  exports: [
   ]
 })
 export class AuthModule { }
