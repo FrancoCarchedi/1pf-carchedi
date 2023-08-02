@@ -1,8 +1,8 @@
 <h1 mat-dialog-title>
-  Agregar/editar usuario
+  Agregar usuario
 </h1>
-<div mat-dialog-content>
-  <form [formGroup]="userForm" class="flex flex-col w-1/4 my-4 gap-2" (ngSubmit)="onSubmit()">
+<mat-dialog-content>
+  <form [formGroup]="userForm" class="flex flex-col my-4 gap-2" (ngSubmit)="onSubmit()">
     <mat-form-field class="flex-1">
       <mat-label>ID</mat-label>
       <input matInput placeholder="Nombre" type="number" formControlName="id" required>
@@ -33,6 +33,9 @@
       <mat-error *ngIf="userForm.get('password')?.hasError('required')">La contraseña es requerida.</mat-error>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" class="w-fit" (click)="addUser()">Cargar alumno</button>
+    <mat-dialog-actions align="end">
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Cancelar</button>
+      <button mat-raised-button color="primary" mat-dialog-close (click)="addUser()">Cargar alumno</button>
+    </mat-dialog-actions>
   </form>
-</div>
+</mat-dialog-content>

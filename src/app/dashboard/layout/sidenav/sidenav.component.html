@@ -1,23 +1,23 @@
 <mat-sidenav-container class="h-full">
   <mat-sidenav mode="side" opened class="w-1/6">
-    <mat-list>
+    <mat-list role="list">
       <mat-list-item>
-        <button mat-button color="accent" class="w-full" routerLink="/home">Inicio</button>
+        <a mat-button routerLink="/home">Inicio</a>
         <!-- Este boton debe mostrar la pantalla de inicio -->
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
-        <button mat-button color="accent" class="w-full" routerLink="/users">Alumnos</button>
+        <a mat-button routerLink="/users">Usuarios</a>
         <!-- Este boton debe mostrar la tabla de alumnos -->
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
         <!-- Este boton debe mostrar la tabla de cursos -->
-        <button mat-button color="accent" class="w-full" routerLink="/courses">Cursos</button>
+        <a mat-button routerLink="/courses">Cursos</a>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
-        <button mat-button color="accent" class="w-full">Cerrar sesión</button>
+        <a mat-button>Cerrar sesión</a>
         <!-- Este boton debe cerrar la sesion -->
       </mat-list-item>
       <mat-divider></mat-divider>

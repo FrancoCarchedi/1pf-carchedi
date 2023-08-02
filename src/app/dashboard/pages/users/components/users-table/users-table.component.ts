@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 
 export class UsersTableComponent implements OnInit {
-  dataSource$!: Observable<User[]>;
+  dataSource$: Observable<User[]>;
 
   constructor(private userService: UserService) {}
 

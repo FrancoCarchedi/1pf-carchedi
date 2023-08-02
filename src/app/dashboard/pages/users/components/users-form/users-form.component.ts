@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, } from '@angular/forms';
 import { UserService } from '../../user.service';
 import { User } from '../../models/interfaces/user';
@@ -11,10 +11,13 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 })
 
 export class UsersFormComponent {
-  userForm: FormGroup;
-  private dialogRef: MatDialogRef<UsersFormComponent>
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, public dialog: MatDialog) {
+  @Output() eventOpenDialog = new EventEmitter<void>();
+
+  userForm: FormGroup;
+  // public dialogRef: MatDialogRef<UsersFormComponent>
+
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private dialog: MatDialog ,private dialogRef: MatDialogRef<UsersFormComponent>) {
     this.userForm = this.formBuilder.group({
       id: ['', Validators.required],
       name: ['', Validators.required],
@@ -22,13 +25,21 @@ export class UsersFormComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     })
+
+    this.userService.openUserFormModal$.subscribe(() => {
+      this.dialogRef.close();
+      this.openDialog();
+    })
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(UsersFormComponent);
+  openDialog() {
+    this.dialogRef  = this.dialog.open(UsersFormComponent, {
+      width: '800px',
+      disableClose: true,
+    })
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog is closed' + result);
+    this.dialogRef.afterClosed().subscribe(result => {
+      //Aca puede hacer algo cuando se cierra
     })
   }
 
