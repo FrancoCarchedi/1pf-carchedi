@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>
+  Agregar usuario
+</h1>
+<mat-dialog-content>
+  <form [formGroup]="userForm" class="flex flex-col my-4 gap-2" (ngSubmit)="onSubmit()">
+    <mat-form-field class="flex-1">
+      <mat-label>ID</mat-label>
+      <input matInput placeholder="Nombre" type="number" formControlName="id" required>
+      <mat-error *ngIf="userForm.get('id')?.hasError('required')">El ID es requerido.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="flex-1">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Nombre" type="text" formControlName="name" required>
+      <mat-error *ngIf="userForm.get('name')?.hasError('required')">El nombre es requerido.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="flex-1">Apellido</mat-label>
+      <input matInput placeholder="Apellido" type="text" formControlName="surname" required>
+      <mat-error *ngIf="userForm.get('name')?.hasError('required')">El apellido es requerido.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Correo electrónico</mat-label>
+      <input matInput placeholder="Nombre completo" type="email" formControlName="email" required>
+      <mat-error *ngIf="userForm.get('email')?.hasError('required')">El correo es requerido.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Contraseña</mat-label>
+      <input matInput placeholder="Contraseña" type="password" formControlName="password" required>
+      <mat-error *ngIf="userForm.get('password')?.hasError('required')">La contraseña es requerida.</mat-error>
+    </mat-form-field>
+
+    <mat-dialog-actions align="end">
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Cancelar</button>
+      <button mat-raised-button color="primary" mat-dialog-close (click)="addUser()">Cargar alumno</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

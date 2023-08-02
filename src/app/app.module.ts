@@ -9,14 +9,23 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+//Importacion de modulos de Angular
+import { ReactiveFormsModule } from '@angular/forms';
 //Importacion de componentes
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { UsersTableComponent } from './components/users-table/users-table.component';
-import { UsersFormComponent } from './components/users-form/users-form.component';
-import { MiTituloSizeDirective } from './mi-titulo-size.directive';
-// import { FullnamePipe } from './fullname.pipe';
+import { ToolbarComponent } from './dashboard/layout/toolbar/toolbar.component';
+import { SidenavComponent } from './dashboard/layout/sidenav/sidenav.component';
+import { UsersTableComponent } from './dashboard/pages/users/components/users-table/users-table.component';
+import { UsersFormComponent } from './dashboard/pages/users/components/users-form/users-form.component';
+import { AuthComponent } from './auth/auth.component';
+//Directivas y pipes
+import { MiTituloSizeDirective } from './shared/directives/mi-titulo-size.directive';
+import { FullnamePipe } from './shared/pipes/fullname.pipe';
+import { UsersComponent } from './dashboard/pages/users/users.component';
+import { UserService } from './dashboard/pages/users/user.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +33,11 @@ import { MiTituloSizeDirective } from './mi-titulo-size.directive';
     ToolbarComponent,
     SidenavComponent,
     MiTituloSizeDirective,
-    // FullnamePipe,
+    FullnamePipe,
+    UsersTableComponent,
+    UsersFormComponent,
+    AuthComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -33,15 +46,19 @@ import { MiTituloSizeDirective } from './mi-titulo-size.directive';
     MatToolbarModule,
     MatSidenavModule,
     MatTableModule,
-    UsersTableComponent,
-    UsersFormComponent,
     MatButtonModule,
     MatDividerModule,
     MatListModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   exports: [
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,31 @@
+<mat-sidenav-container class="h-full">
+  <mat-sidenav mode="side" opened class="w-1/6">
+    <mat-list role="list">
+      <mat-list-item>
+        <a mat-button routerLink="/home">Inicio</a>
+        <!-- Este boton debe mostrar la pantalla de inicio -->
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <a mat-button routerLink="/users">Usuarios</a>
+        <!-- Este boton debe mostrar la tabla de alumnos -->
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <!-- Este boton debe mostrar la tabla de cursos -->
+        <a mat-button routerLink="/courses">Cursos</a>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <a mat-button>Cerrar sesión</a>
+        <!-- Este boton debe cerrar la sesion -->
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content [ngClass]="'p-8'">
+    <!-- <app-users-table/>
+    <app-users-form></app-users-form> -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+<mat-sidenav-container/>
